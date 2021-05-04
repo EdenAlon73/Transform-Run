@@ -7,7 +7,7 @@ public class FormChanger : MonoBehaviour
     [SerializeField] private GameObject boxForm;
     [SerializeField] private GameObject cylinderForm;
     [SerializeField] private GameObject sphereForm;
-
+    [SerializeField] private ParticleSystem smoke;
     public bool isBox;
     public bool isCylinder;
     public bool isSphere;
@@ -26,6 +26,7 @@ public class FormChanger : MonoBehaviour
         isBox = true;
         isCylinder = false;
         isSphere = false;
+        smoke.Play();
     }
 
     public void ChangeToCylinder()
@@ -36,6 +37,7 @@ public class FormChanger : MonoBehaviour
         isCylinder = true;
         isSphere = false;
         isBox = false;
+        smoke.Play();
     }
 
     public void ChangeToSphere()
@@ -46,5 +48,6 @@ public class FormChanger : MonoBehaviour
         isSphere = true;
         isBox = false;
         isCylinder = false;
+        smoke.Play();
     }
 }
