@@ -4,59 +4,59 @@ using UnityEngine;
 
 public class FormChanger : MonoBehaviour
 {
-    [SerializeField] private GameObject boxForm;
-    [SerializeField] private GameObject cylinderForm;
-    [SerializeField] private GameObject sphereForm;
+    [SerializeField] private GameObject horseForm;
+    [SerializeField] private GameObject sneakingForm;
+    [SerializeField] private GameObject swordForm;
     [SerializeField] private ParticleSystem smoke;
-    public bool isBox;
-    public bool isCylinder;
-    public bool isSphere;
+    public bool isHorse;
+    public bool isSneaking;
+    public bool isSword;
 
     public void Start()
     {
-        isBox = true;
-        isCylinder = false;
-        isSphere = false;
+        isHorse = true;
+        isSneaking = false;
+        isSword = false;
     }
-    public void ChangeToBox()
+    public void ChangeToHorse()
     {
-        if (!isBox)
+        if (!isHorse)
         {
             smoke.Play();
         }
-        boxForm.SetActive(true);
-        cylinderForm.SetActive(false);
-        sphereForm.SetActive(false);
-        isBox = true;
-        isCylinder = false;
-        isSphere = false;
-    }
-
-    public void ChangeToCylinder()
-    {
-        if (!isCylinder)
-        {
-            smoke.Play();
-        }
-        cylinderForm.SetActive(true);
-        boxForm.SetActive(false);
-        sphereForm.SetActive(false);
-        isCylinder = true;
-        isSphere = false;
-        isBox = false;
+        horseForm.SetActive(true);
+        sneakingForm.SetActive(false);
+        swordForm.SetActive(false);
+        isHorse = true;
+        isSneaking = false;
+        isSword = false;
     }
 
-    public void ChangeToSphere()
+    public void ChangeToSneaking()
     {
-        if (!isSphere)
+        if (!isSneaking)
         {
             smoke.Play();
         }
-        sphereForm.SetActive(true);
-        cylinderForm.SetActive(false);
-        boxForm.SetActive(false);
-        isSphere = true;
-        isBox = false;
-        isCylinder = false;
+        sneakingForm.SetActive(true);
+        horseForm.SetActive(false);
+        swordForm.SetActive(false);
+        isSneaking = true;
+        isSword = false;
+        isHorse = false;
+    }
+
+    public void ChangeToSword()
+    {
+        if (!isSword)
+        {
+            smoke.Play();
+        }
+        swordForm.SetActive(true);
+        sneakingForm.SetActive(false);
+        horseForm.SetActive(false);
+        isSword = true;
+        isHorse = false;
+        isSneaking = false;
     }
 }

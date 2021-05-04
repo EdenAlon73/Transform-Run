@@ -16,11 +16,11 @@ public class BiomTypeChecker : MonoBehaviour
         
         if (boxBiom)
         {
-            if (formChanger.isBox)
+            if (formChanger.isHorse)
             {
                 playerMover.moveSpeed = 5f;
             }
-            if (!formChanger.isBox)
+            if (!formChanger.isHorse)
             {
                 playerMover.moveSpeed = 1f;
             }
@@ -28,12 +28,12 @@ public class BiomTypeChecker : MonoBehaviour
         if (cylinderBiom)
         {
             print("cylBiom");
-            if (formChanger.isCylinder)
+            if (formChanger.isSneaking)
             {
                 playerMover.moveSpeed = 5f;
                 print("isCyl");
             }
-            if (!formChanger.isCylinder)
+            if (!formChanger.isSneaking)
             {
                 playerMover.moveSpeed = 1f;
                 print("notCyl");
@@ -42,11 +42,11 @@ public class BiomTypeChecker : MonoBehaviour
 
         if (sphereBiom)
         {
-            if (formChanger.isSphere)
+            if (formChanger.isSword)
             {
                 playerMover.moveSpeed = 5f;
             }
-            if (!formChanger.isSphere)
+            if (!formChanger.isSword)
             {
                 playerMover.moveSpeed = 1f;
             }
