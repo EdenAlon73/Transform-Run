@@ -20,34 +20,43 @@ public class FormChanger : MonoBehaviour
     }
     public void ChangeToBox()
     {
+        if (!isBox)
+        {
+            smoke.Play();
+        }
         boxForm.SetActive(true);
         cylinderForm.SetActive(false);
         sphereForm.SetActive(false);
         isBox = true;
         isCylinder = false;
         isSphere = false;
-        smoke.Play();
     }
 
     public void ChangeToCylinder()
     {
+        if (!isCylinder)
+        {
+            smoke.Play();
+        }
         cylinderForm.SetActive(true);
         boxForm.SetActive(false);
         sphereForm.SetActive(false);
         isCylinder = true;
         isSphere = false;
         isBox = false;
-        smoke.Play();
     }
 
     public void ChangeToSphere()
     {
+        if (!isSphere)
+        {
+            smoke.Play();
+        }
         sphereForm.SetActive(true);
         cylinderForm.SetActive(false);
         boxForm.SetActive(false);
         isSphere = true;
         isBox = false;
         isCylinder = false;
-        smoke.Play();
     }
 }
