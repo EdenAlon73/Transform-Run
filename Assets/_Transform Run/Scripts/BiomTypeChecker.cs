@@ -9,16 +9,17 @@ public class BiomTypeChecker : MonoBehaviour
     
     [SerializeField] private bool sneakingBiome = false;
     [SerializeField] private bool swordBiome= false;
-
+    
     private void SpeedControll()
     {
         
        
         if (sneakingBiome)
         {
+            playerMover.horseMoveSpeed = 1f;
             if (formChanger.isSneaking)
             {
-                playerMover.moveSpeed = 5f;
+                playerMover.moveSpeed = 10f;
             }
             if (!formChanger.isSneaking)
             {
@@ -28,9 +29,10 @@ public class BiomTypeChecker : MonoBehaviour
 
         if (swordBiome)
         {
+            playerMover.horseMoveSpeed = 1f;
             if (formChanger.isSword)
             {
-                playerMover.moveSpeed = 5f;
+                playerMover.moveSpeed = 10f;
             }
             if (!formChanger.isSword)
             {
@@ -41,5 +43,11 @@ public class BiomTypeChecker : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         SpeedControll();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        playerMover.ChangeHorseSpeed();
+        playerMover.moveSpeed = 10f;
     }
 }

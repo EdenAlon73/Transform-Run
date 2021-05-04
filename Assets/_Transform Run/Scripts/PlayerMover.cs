@@ -31,4 +31,8 @@ public class PlayerMover : MonoBehaviour
         }
         
     }
+    public void ChangeHorseSpeed()
+    {
+        horseMoveSpeed = 15f;
+    }
 }
