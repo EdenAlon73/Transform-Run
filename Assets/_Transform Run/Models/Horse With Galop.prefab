@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5831473692373641475}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 81.8, y: 5.140941, z: -70.86284}
-  m_LocalScale: {x: 0.2893908, y: 0.24095885, z: 0.22946241}
+  m_LocalScale: {x: 0.012413265, y: 0.012413267, z: 0.012413267}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!137 &1594580448489688128
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 5461320835613783329, guid: 132d882898bc0764a9054a6515a858dd, type: 3}
+  m_Mesh: {fileID: 5461320835613783329, guid: 3445bdac31ff87b4b8e7dcffeed80988, type: 3}
   m_Bones: []
   m_BlendShapeWeights:
   - 0
@@ -96,8 +96,8 @@ SkinnedMeshRenderer:
   - 0
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.69999886, y: 28.75, z: 101.8}
-    m_Extent: {x: 33.9, y: 163.65, z: 106}
+    m_Center: {x: -0.69999886, y: 97, z: -27.12}
+    m_Extent: {x: 33.9, y: 84.46, z: 159.8}
   m_DirtyAABB: 0
 --- !u!95 &6568801026012375559
 Animator:
