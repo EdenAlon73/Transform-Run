@@ -6,11 +6,11 @@ public class Player2Mover : MonoBehaviour
 {
     public float moveSpeed = 7f;
     public float horseMoveSpeed = 10f;
-    private FormChanger formChanger;
+    private Player2FormChanger formChanger;
     private bool canMove = true;
     private void Start()
     {
-        formChanger = GetComponent<FormChanger>();
+        formChanger = GetComponent<Player2FormChanger>();
     }
 
     private void Update()

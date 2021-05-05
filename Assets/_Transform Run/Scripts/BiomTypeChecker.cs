@@ -5,11 +5,14 @@ using UnityEngine;
 public class BiomTypeChecker : MonoBehaviour
 {
     [SerializeField] private FormChanger formChanger;
+    [SerializeField] private Player2FormChanger player2FormChanger;
     [SerializeField] private PlayerMover playerMover;
-    
+    [SerializeField] private LastSword lastSword;
+    [SerializeField] private Player2Mover player2Mover;
     [SerializeField] private bool sneakingBiome = false;
     [SerializeField] private bool swordBiome= false;
-    [SerializeField] private LastSword lastSword;
+    [SerializeField] private bool isPlayer2Lane = false;
+    
     private void Start()
     {
         if (swordBiome)
@@ -19,43 +22,83 @@ public class BiomTypeChecker : MonoBehaviour
     }
     private void SpeedControll()
     {
-        
-       
-        if (sneakingBiome)
+        if (!isPlayer2Lane)
         {
-            playerMover.horseMoveSpeed = 1f;
-            if (formChanger.isSneaking)
-            {
-                playerMover.moveSpeed = 10f;
-            }
-            if (!formChanger.isSneaking)
-            {
-                playerMover.moveSpeed = 1f;
-            }
-        }
-
-     
-        if (swordBiome)
-        {
-            if (!lastSword.defeated)
+            if (sneakingBiome)
             {
                 playerMover.horseMoveSpeed = 1f;
-                if (formChanger.isSword)
+                if (formChanger.isSneaking)
                 {
                     playerMover.moveSpeed = 10f;
                 }
-                if (!formChanger.isSword)
+                if (!formChanger.isSneaking)
                 {
                     playerMover.moveSpeed = 1f;
                 }
             }
-            else
+
+
+            if (swordBiome)
             {
-                playerMover.horseMoveSpeed = 15;
-                playerMover.moveSpeed = 10;
+                if (!lastSword.defeated)
+                {
+                    playerMover.horseMoveSpeed = 1f;
+                    if (formChanger.isSword)
+                    {
+                        playerMover.moveSpeed = 10f;
+                    }
+                    if (!formChanger.isSword)
+                    {
+                        playerMover.moveSpeed = 1f;
+                    }
+                }
+                else
+                {
+                    playerMover.horseMoveSpeed = 15;
+                    playerMover.moveSpeed = 10;
+                }
+
             }
-           
         }
+        else
+        {
+            if (sneakingBiome)
+            {
+                player2Mover.horseMoveSpeed = 1f;
+                if (player2FormChanger.isSneaking)
+                {
+                    player2Mover.moveSpeed = 10f;
+                }
+                if (!player2FormChanger.isSneaking)
+                {
+                    player2Mover.moveSpeed = 1f;
+                }
+            }
+
+
+            if (swordBiome)
+            {
+                if (!lastSword.defeated)
+                {
+                    player2Mover.horseMoveSpeed = 1f;
+                    if (player2FormChanger.isSword)
+                    {
+                        player2Mover.moveSpeed = 10f;
+                    }
+                    if (!player2FormChanger.isSword)
+                    {
+                        player2Mover.moveSpeed = 1f;
+                    }
+                }
+                else
+                {
+                    player2Mover.horseMoveSpeed = 15;
+                    player2Mover.moveSpeed = 10;
+                }
+
+            }
+        }
+        
     }
     private void OnTriggerStay(Collider other)
     {
