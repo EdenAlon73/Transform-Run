@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FormChanger : MonoBehaviour
+public class Player2FormChanger : MonoBehaviour
 {
     [SerializeField] private GameObject horseForm;
     [SerializeField] private GameObject sneakingForm;
     [SerializeField] private GameObject swordForm;
     [SerializeField] private GameObject zoroWin;
     [SerializeField] private ParticleSystem smoke;
-    
+
     public bool isHorse;
     public bool isSneaking;
     public bool isSword;
@@ -19,6 +19,21 @@ public class FormChanger : MonoBehaviour
         isHorse = true;
         isSneaking = false;
         isSword = false;
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ChangeToHorse();
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            ChangeToSneaking();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ChangeToSword();
+        }
     }
     public void ChangeToHorse()
     {
