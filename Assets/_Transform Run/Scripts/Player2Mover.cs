@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMover : MonoBehaviour
+public class Player2Mover : MonoBehaviour
 {
     public float moveSpeed = 7f;
     public float horseMoveSpeed = 10f;
@@ -16,7 +15,7 @@ public class PlayerMover : MonoBehaviour
 
     private void Update()
     {
-        MoveForward(); 
+        MoveForward();
     }
 
     private void MoveForward()

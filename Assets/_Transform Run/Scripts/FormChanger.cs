@@ -7,11 +7,12 @@ public class FormChanger : MonoBehaviour
     [SerializeField] private GameObject horseForm;
     [SerializeField] private GameObject sneakingForm;
     [SerializeField] private GameObject swordForm;
+    [SerializeField] private GameObject zoroWin;
     [SerializeField] private ParticleSystem smoke;
     public bool isHorse;
     public bool isSneaking;
     public bool isSword;
-
+    public bool isWin;
     public void Start()
     {
         isHorse = true;
@@ -56,6 +57,19 @@ public class FormChanger : MonoBehaviour
         sneakingForm.SetActive(false);
         horseForm.SetActive(false);
         isSword = true;
+        isHorse = false;
+        isSneaking = false;
+    }
+
+    public void Win()
+    {
+        smoke.Play();
+        zoroWin.SetActive(true);
+        swordForm.SetActive(false);
+        sneakingForm.SetActive(false);
+        horseForm.SetActive(false);
+        isWin = true;
+        isSword = false;
         isHorse = false;
         isSneaking = false;
     }

@@ -9,7 +9,14 @@ public class BiomTypeChecker : MonoBehaviour
     
     [SerializeField] private bool sneakingBiome = false;
     [SerializeField] private bool swordBiome= false;
-    
+    [SerializeField] private LastSword lastSword;
+    private void Start()
+    {
+        if (swordBiome)
+        {
+            lastSword = GetComponentInChildren<LastSword>();
+        }
+    }
     private void SpeedControll()
     {
         
@@ -27,17 +34,27 @@ public class BiomTypeChecker : MonoBehaviour
             }
         }
 
+     
         if (swordBiome)
         {
-            playerMover.horseMoveSpeed = 1f;
-            if (formChanger.isSword)
+            if (!lastSword.defeated)
             {
-                playerMover.moveSpeed = 10f;
+                playerMover.horseMoveSpeed = 1f;
+                if (formChanger.isSword)
+                {
+                    playerMover.moveSpeed = 10f;
+                }
+                if (!formChanger.isSword)
+                {
+                    playerMover.moveSpeed = 1f;
+                }
             }
-            if (!formChanger.isSword)
+            else
             {
-                playerMover.moveSpeed = 1f;
+                playerMover.horseMoveSpeed = 15;
+                playerMover.moveSpeed = 10;
             }
+           
         }
     }
     private void OnTriggerStay(Collider other)
