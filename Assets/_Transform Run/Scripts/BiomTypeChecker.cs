@@ -107,7 +107,16 @@ public class BiomTypeChecker : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        playerMover.ChangeHorseSpeed();
-        playerMover.moveSpeed = 10f;
+        if (!isPlayer2Lane)
+        {
+            playerMover.ChangeHorseSpeed();
+            playerMover.moveSpeed = 10f;
+        }
+        else
+        {
+            player2Mover.ChangeHorseSpeed();
+            player2Mover.moveSpeed = 10f;
+        }
+       
     }
 }
