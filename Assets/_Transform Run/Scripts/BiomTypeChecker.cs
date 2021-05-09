@@ -116,7 +116,11 @@ public class BiomTypeChecker : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        SpeedControll();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            SpeedControll();
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
