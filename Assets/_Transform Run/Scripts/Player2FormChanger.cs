@@ -9,7 +9,7 @@ public class Player2FormChanger : MonoBehaviour
     [SerializeField] private GameObject swordForm;
     [SerializeField] private GameObject zoroWin;
     [SerializeField] private ParticleSystem smoke;
-
+    
     public bool isHorse;
     public bool isSneaking;
     public bool isSword;
@@ -88,5 +88,10 @@ public class Player2FormChanger : MonoBehaviour
         isSword = false;
         isHorse = false;
         isSneaking = false;
+    }
+
+    public void HorseChanger()
+    {
+        Invoke("ChangeToHorse", 1);
     }
 }

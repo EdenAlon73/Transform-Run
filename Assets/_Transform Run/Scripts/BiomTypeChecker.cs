@@ -65,6 +65,7 @@ public class BiomTypeChecker : MonoBehaviour
             if (sneakingBiome)
             {
                 player2Mover.horseMoveSpeed = 1f;
+                Invoke("ChageFormPlayer2", Random.Range(0.5f,1.5f) );
                 if (player2FormChanger.isSneaking)
                 {
                     player2Mover.moveSpeed = 10f;
@@ -81,6 +82,7 @@ public class BiomTypeChecker : MonoBehaviour
                 if (!lastSword.defeated)
                 {
                     player2Mover.horseMoveSpeed = 1f;
+                    Invoke("ChageFormPlayer2", Random.Range(0.5f, 1.5f));
                     if (player2FormChanger.isSword)
                     {
                         player2Mover.moveSpeed = 10f;
@@ -100,6 +102,18 @@ public class BiomTypeChecker : MonoBehaviour
         }
         
     }
+    private void ChageFormPlayer2()
+    {
+        if (sneakingBiome)
+        {
+            player2FormChanger.ChangeToSneaking();
+        }
+
+        if (swordBiome)
+        {
+            player2FormChanger.ChangeToSword();
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         SpeedControll();
@@ -116,6 +130,7 @@ public class BiomTypeChecker : MonoBehaviour
         {
             player2Mover.ChangeHorseSpeed();
             player2Mover.moveSpeed = 10f;
+            player2FormChanger.HorseChanger();
         }
        
     }
