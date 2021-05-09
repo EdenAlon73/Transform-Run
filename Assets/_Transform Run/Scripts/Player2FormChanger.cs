@@ -92,6 +92,6 @@ public class Player2FormChanger : MonoBehaviour
 
     public void HorseChanger()
     {
-        Invoke("ChangeToHorse", 0.8f);
+        ChangeToHorse();
     }
 }
