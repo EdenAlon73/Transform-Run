@@ -26016,11 +26016,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955dd7cf97426fb48a0106759933eac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9
+  moveSpeed: 10
   horseMoveSpeed: 0
-  ogHorseMoveSpeed: 12
-  ogMoveSpeed: 9
-  slowMoveSpeed: 5
+  ogHorseMoveSpeed: 13
+  ogMoveSpeed: 10
+  slowMoveSpeed: 4
 --- !u!114 &842384870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63490,11 +63490,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc644d8d02430040a6a9ab46c232968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9
+  moveSpeed: 10
   horseMoveSpeed: 0
-  ogHorseMoveSpeed: 12
-  ogMoveSpeed: 9
-  slowMoveSpeed: 5
+  ogHorseMoveSpeed: 13
+  ogMoveSpeed: 10
+  slowMoveSpeed: 4
   canMove: 1
 --- !u!65 &1632792972
 BoxCollider:
