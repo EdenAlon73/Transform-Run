@@ -12,6 +12,7 @@ public class BiomTypeChecker : MonoBehaviour
     [SerializeField] private bool sneakingBiome = false;
     [SerializeField] private bool swordBiome= false;
     [SerializeField] private bool isPlayer2Lane = false;
+    public bool wrongForm = false;
     
     private void Start()
     {
@@ -30,26 +31,29 @@ public class BiomTypeChecker : MonoBehaviour
                 if (formChanger.isSneaking)
                 {
                     playerMover.moveSpeed = playerMover.ogMoveSpeed;
+                    wrongForm = false;
                 }
                 if (!formChanger.isSneaking)
                 {
                     playerMover.moveSpeed = playerMover.slowMoveSpeed;
+                    wrongForm = true;
                 }
             }
-
 
             if (swordBiome)
             {
                 if (!lastSword.defeated)
                 {
-                    playerMover.horseMoveSpeed = playerMover.slowMoveSpeed;
+                   // playerMover.horseMoveSpeed = playerMover.slowMoveSpeed;
                     if (formChanger.isSword)
                     {
                         playerMover.moveSpeed = playerMover.ogMoveSpeed;
+                        wrongForm = false;
                     }
                     if (!formChanger.isSword)
                     {
-                        playerMover.moveSpeed = playerMover.slowMoveSpeed;
+                        playerMover.StopMoving();
+                        wrongForm = true;
                     }
                 }
                 else
@@ -60,12 +64,16 @@ public class BiomTypeChecker : MonoBehaviour
 
             }
         }
-        else
+        
+    }
+    private void Player2SpeedControl()
+    {
+        if((isPlayer2Lane))
         {
             if (sneakingBiome)
             {
                 player2Mover.horseMoveSpeed = player2Mover.slowMoveSpeed;
-                Invoke("ChageFormPlayer2", Random.Range(0.5f,1.5f) );
+                Invoke("ChageFormPlayer2", Random.Range(0.5f, 1.5f));
                 if (player2FormChanger.isSneaking)
                 {
                     player2Mover.moveSpeed = player2Mover.ogMoveSpeed;
@@ -100,7 +108,6 @@ public class BiomTypeChecker : MonoBehaviour
 
             }
         }
-        
     }
     private void ChageFormPlayer2()
     {
@@ -114,13 +121,15 @@ public class BiomTypeChecker : MonoBehaviour
             player2FormChanger.ChangeToSword();
         }
     }
+ 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             SpeedControll();
+            Player2SpeedControl();
         }
-        
+      
     }
 
     private void OnTriggerExit(Collider other)

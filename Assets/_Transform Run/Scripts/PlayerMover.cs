@@ -13,6 +13,8 @@ public class PlayerMover : MonoBehaviour
     private FormChanger formChanger;
     private Rigidbody myRigidbody;
     [SerializeField] private bool canMove = true;
+    [SerializeField] private GameObject blinkPanel;
+    [SerializeField] private BiomTypeChecker biom;
     private void Start()
     {
         formChanger = GetComponent<FormChanger>();
@@ -21,7 +23,8 @@ public class PlayerMover : MonoBehaviour
 
     private void Update()
     {
-        MoveForward(); 
+        MoveForward();
+        BlinkPanelControl();
     }
 
     private void MoveForward()
@@ -38,6 +41,7 @@ public class PlayerMover : MonoBehaviour
             }
         }
     }
+
     public void ChangeHorseSpeed()
     {
         horseMoveSpeed = ogHorseMoveSpeed;
@@ -45,9 +49,32 @@ public class PlayerMover : MonoBehaviour
     public void Win()
     {
         canMove = false;
-        if (!canMove)
+        StopMoving();
+    }
+
+    public void StopMoving()
+    {
+            moveSpeed = 0;
+            horseMoveSpeed = 0;
+    }
+
+    private void BlinkPanelControl()
+    {
+        if(biom != null)
         {
-            myRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+            if (biom.wrongForm)
+            {
+                blinkPanel.SetActive(true);
+            }
+            else
+            {
+                blinkPanel.SetActive(false);
+            }
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        biom = other.GetComponent<BiomTypeChecker>();
+    }
+
 }
