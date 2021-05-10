@@ -26016,8 +26016,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955dd7cf97426fb48a0106759933eac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 9
   horseMoveSpeed: 0
+  ogHorseMoveSpeed: 12
+  ogMoveSpeed: 9
+  slowMoveSpeed: 5
 --- !u!114 &842384870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50478,6 +50481,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   horseMoveSpeed: 10
+  ogHorseMoveSpeed: 10
+  ogMoveSpeed: 7
+  slowMoveSpeed: 4
+  canMove: 1
 --- !u!4 &1273046812
 Transform:
   m_ObjectHideFlags: 0
@@ -63483,8 +63490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc644d8d02430040a6a9ab46c232968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 9
   horseMoveSpeed: 0
+  ogHorseMoveSpeed: 12
+  ogMoveSpeed: 9
+  slowMoveSpeed: 5
+  canMove: 1
 --- !u!65 &1632792972
 BoxCollider:
   m_ObjectHideFlags: 0

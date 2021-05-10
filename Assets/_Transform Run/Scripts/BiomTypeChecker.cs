@@ -26,14 +26,14 @@ public class BiomTypeChecker : MonoBehaviour
         {
             if (sneakingBiome)
             {
-                playerMover.horseMoveSpeed = 1f;
+                playerMover.horseMoveSpeed = playerMover.slowMoveSpeed;
                 if (formChanger.isSneaking)
                 {
-                    playerMover.moveSpeed = 10f;
+                    playerMover.moveSpeed = playerMover.ogMoveSpeed;
                 }
                 if (!formChanger.isSneaking)
                 {
-                    playerMover.moveSpeed = 1f;
+                    playerMover.moveSpeed = playerMover.slowMoveSpeed;
                 }
             }
 
@@ -42,20 +42,20 @@ public class BiomTypeChecker : MonoBehaviour
             {
                 if (!lastSword.defeated)
                 {
-                    playerMover.horseMoveSpeed = 1f;
+                    playerMover.horseMoveSpeed = playerMover.slowMoveSpeed;
                     if (formChanger.isSword)
                     {
-                        playerMover.moveSpeed = 10f;
+                        playerMover.moveSpeed = playerMover.ogMoveSpeed;
                     }
                     if (!formChanger.isSword)
                     {
-                        playerMover.moveSpeed = 1f;
+                        playerMover.moveSpeed = playerMover.slowMoveSpeed;
                     }
                 }
                 else
                 {
-                    playerMover.horseMoveSpeed = 15;
-                    playerMover.moveSpeed = 10;
+                    playerMover.horseMoveSpeed = playerMover.ogHorseMoveSpeed;
+                    playerMover.moveSpeed = playerMover.ogMoveSpeed;
                 }
 
             }
@@ -64,15 +64,15 @@ public class BiomTypeChecker : MonoBehaviour
         {
             if (sneakingBiome)
             {
-                player2Mover.horseMoveSpeed = 1f;
+                player2Mover.horseMoveSpeed = player2Mover.slowMoveSpeed;
                 Invoke("ChageFormPlayer2", Random.Range(0.5f,1.5f) );
                 if (player2FormChanger.isSneaking)
                 {
-                    player2Mover.moveSpeed = 10f;
+                    player2Mover.moveSpeed = player2Mover.ogMoveSpeed;
                 }
                 if (!player2FormChanger.isSneaking)
                 {
-                    player2Mover.moveSpeed = 1f;
+                    player2Mover.moveSpeed = player2Mover.slowMoveSpeed;
                 }
             }
 
@@ -81,21 +81,21 @@ public class BiomTypeChecker : MonoBehaviour
             {
                 if (!lastSword.defeated)
                 {
-                    player2Mover.horseMoveSpeed = 1f;
+                    player2Mover.horseMoveSpeed = player2Mover.slowMoveSpeed;
                     Invoke("ChageFormPlayer2", Random.Range(0.5f, 1.5f));
                     if (player2FormChanger.isSword)
                     {
-                        player2Mover.moveSpeed = 10f;
+                        player2Mover.moveSpeed = player2Mover.ogMoveSpeed;
                     }
                     if (!player2FormChanger.isSword)
                     {
-                        player2Mover.moveSpeed = 1f;
+                        player2Mover.moveSpeed = player2Mover.slowMoveSpeed;
                     }
                 }
                 else
                 {
-                    player2Mover.horseMoveSpeed = 15;
-                    player2Mover.moveSpeed = 10;
+                    player2Mover.horseMoveSpeed = player2Mover.ogHorseMoveSpeed;
+                    player2Mover.moveSpeed = player2Mover.ogMoveSpeed;
                 }
 
             }
@@ -128,12 +128,12 @@ public class BiomTypeChecker : MonoBehaviour
         if (!isPlayer2Lane)
         {
             playerMover.ChangeHorseSpeed();
-            playerMover.moveSpeed = 10f;
+            playerMover.moveSpeed = playerMover.ogMoveSpeed;
         }
         else
         {
             player2Mover.ChangeHorseSpeed();
-            player2Mover.moveSpeed = 10f;
+            player2Mover.moveSpeed = player2Mover.ogMoveSpeed;
             player2FormChanger.HorseChanger();
         }
        

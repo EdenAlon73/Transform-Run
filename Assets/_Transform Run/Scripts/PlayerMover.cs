@@ -7,11 +7,16 @@ public class PlayerMover : MonoBehaviour
 {
     public float moveSpeed = 7f;
     public float horseMoveSpeed = 10f;
+    public float ogHorseMoveSpeed = 10f;
+    public float ogMoveSpeed = 7f;
+    public float slowMoveSpeed = 4f;
     private FormChanger formChanger;
-    private bool canMove = true;
+    private Rigidbody myRigidbody;
+    [SerializeField] private bool canMove = true;
     private void Start()
     {
         formChanger = GetComponent<FormChanger>();
+        myRigidbody = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -35,10 +40,14 @@ public class PlayerMover : MonoBehaviour
     }
     public void ChangeHorseSpeed()
     {
-        horseMoveSpeed = 15f;
+        horseMoveSpeed = ogHorseMoveSpeed;
     }
     public void Win()
     {
         canMove = false;
+        if (!canMove)
+        {
+            myRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        }
     }
 }

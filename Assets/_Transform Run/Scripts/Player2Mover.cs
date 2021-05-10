@@ -5,7 +5,10 @@ using UnityEngine;
 public class Player2Mover : MonoBehaviour
 {
     public float moveSpeed = 7f;
-    public float horseMoveSpeed = 10f;
+    public float horseMoveSpeed;
+    public float ogHorseMoveSpeed = 10f;
+    public float ogMoveSpeed = 7f;
+    public float slowMoveSpeed = 4f;
     private Player2FormChanger formChanger;
     private bool canMove = true;
     private void Start()
@@ -34,7 +37,7 @@ public class Player2Mover : MonoBehaviour
     }
     public void ChangeHorseSpeed()
     {
-        horseMoveSpeed = 15f;
+        horseMoveSpeed = ogHorseMoveSpeed;
     }
     public void Win()
     {
