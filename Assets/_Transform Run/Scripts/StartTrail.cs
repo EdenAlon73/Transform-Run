@@ -24,7 +24,7 @@ public class StartTrail : MonoBehaviour
     }
     public void StartGame()
     {
-        playerMover.horseMoveSpeed = 15f;
+        playerMover.horseMoveSpeed = playerMover.ogHorseMoveSpeed;
         player2Mover.horseMoveSpeed = 15f;
         zCutOut.enabled = true;
         zCutOutTop.enabled = true;

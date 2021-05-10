@@ -13,12 +13,14 @@ public class PlayerMover : MonoBehaviour
     private FormChanger formChanger;
     private Rigidbody myRigidbody;
     [SerializeField] private bool canMove = true;
-    [SerializeField] private GameObject blinkPanel;
+    public GameObject blinkPanel;
     [SerializeField] private BiomTypeChecker biom;
+    private RigidbodyConstraints ogConstarints;
     private void Start()
     {
         formChanger = GetComponent<FormChanger>();
         myRigidbody = GetComponent<Rigidbody>();
+        ogConstarints = myRigidbody.constraints;
     }
 
     private void Update()
@@ -33,11 +35,13 @@ public class PlayerMover : MonoBehaviour
         {
             if (formChanger.isHorse)
             {
-                transform.Translate(Vector3.forward * (horseMoveSpeed * Time.deltaTime));
+               // transform.Translate(Vector3.forward * (horseMoveSpeed * Time.deltaTime));
+                myRigidbody.velocity = Vector3.forward * (horseMoveSpeed * Time.deltaTime);
             }
             else
             {
-                transform.Translate(Vector3.forward * (moveSpeed * Time.deltaTime));
+                //transform.Translate(Vector3.forward * (moveSpeed * Time.deltaTime));
+                myRigidbody.velocity = Vector3.forward * (moveSpeed * Time.deltaTime);
             }
         }
     }
@@ -54,10 +58,13 @@ public class PlayerMover : MonoBehaviour
 
     public void StopMoving()
     {
-            moveSpeed = 0;
-            horseMoveSpeed = 0;
+        myRigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
 
+    public void FreeConstraints()
+    {
+       myRigidbody.constraints = ogConstarints;
+    }
     private void BlinkPanelControl()
     {
         if(biom != null)
@@ -65,16 +72,31 @@ public class PlayerMover : MonoBehaviour
             if (biom.wrongForm)
             {
                 blinkPanel.SetActive(true);
+                print("Blink control true");
             }
             else
             {
                 blinkPanel.SetActive(false);
+                print("Blink control false");
             }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         biom = other.GetComponent<BiomTypeChecker>();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(biom == null)
+        {
+            biom = other.GetComponent<BiomTypeChecker>();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        blinkPanel.SetActive(false);
+        print("exit");
     }
 
 }

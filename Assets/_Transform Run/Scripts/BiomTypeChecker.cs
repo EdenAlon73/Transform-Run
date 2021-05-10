@@ -44,14 +44,17 @@ public class BiomTypeChecker : MonoBehaviour
             {
                 if (!lastSword.defeated)
                 {
-                   // playerMover.horseMoveSpeed = playerMover.slowMoveSpeed;
+                   //playerMover.horseMoveSpeed = playerMover.slowMoveSpeed;
                     if (formChanger.isSword)
                     {
                         playerMover.moveSpeed = playerMover.ogMoveSpeed;
                         wrongForm = false;
+                        playerMover.FreeConstraints();
+                        print("is sword Right");
                     }
                     if (!formChanger.isSword)
                     {
+                        print("is sword wrong");
                         playerMover.StopMoving();
                         wrongForm = true;
                     }
@@ -60,6 +63,8 @@ public class BiomTypeChecker : MonoBehaviour
                 {
                     playerMover.horseMoveSpeed = playerMover.ogHorseMoveSpeed;
                     playerMover.moveSpeed = playerMover.ogMoveSpeed;
+                    playerMover.FreeConstraints();
+                    wrongForm = false;
                 }
 
             }
@@ -138,6 +143,7 @@ public class BiomTypeChecker : MonoBehaviour
         {
             playerMover.ChangeHorseSpeed();
             playerMover.moveSpeed = playerMover.ogMoveSpeed;
+            playerMover.FreeConstraints();
         }
         else
         {

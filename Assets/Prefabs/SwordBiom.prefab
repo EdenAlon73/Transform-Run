@@ -345,6 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245814e89a048364f94862af3d8a165f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  formChanger: {fileID: 0}
+  player2FormChanger: {fileID: 0}
   isSwordEnemy: 0
   isGunEnemy: 0
 --- !u!65 &8796006351526784676
@@ -372,6 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245814e89a048364f94862af3d8a165f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  formChanger: {fileID: 0}
+  player2FormChanger: {fileID: 0}
   isSwordEnemy: 0
   isGunEnemy: 0
 --- !u!65 &8796006351256243344
@@ -399,6 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245814e89a048364f94862af3d8a165f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  formChanger: {fileID: 0}
+  player2FormChanger: {fileID: 0}
   isSwordEnemy: 0
   isGunEnemy: 0
 --- !u!65 &8796006350050389787
@@ -439,6 +445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245814e89a048364f94862af3d8a165f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  formChanger: {fileID: 0}
+  player2FormChanger: {fileID: 0}
   isSwordEnemy: 0
   isGunEnemy: 0
 --- !u!65 &8796006351189299043
@@ -466,6 +474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245814e89a048364f94862af3d8a165f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  formChanger: {fileID: 0}
+  player2FormChanger: {fileID: 0}
   isSwordEnemy: 0
   isGunEnemy: 0
 --- !u!1 &8796006350096265499
@@ -531,10 +541,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   formChanger: {fileID: 0}
+  player2FormChanger: {fileID: 0}
   playerMover: {fileID: 0}
+  lastSword: {fileID: 0}
+  player2Mover: {fileID: 0}
   sneakingBiome: 0
   swordBiome: 1
-  lastSword: {fileID: 0}
+  isPlayer2Lane: 0
+  wrongForm: 0
 --- !u!1 &9048096024435539357
 GameObject:
   m_ObjectHideFlags: 0
